@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Results summary component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      @font-face {
+        font-family: "HankenGrotesk";
+        src: url("./assets/fonts/HankenGrotesk-VariableFont_wght.ttf")
+          format("truetype");
+        /* Add other font formats and sources for cross-browser compatibility */
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .card {
+        width: 737px;
+        height: 512px;
+        border-radius: 32px;
+        display: flex;
+        font-family: HankenGrotesk, sans-serif;
+        font-weight: 700;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      .sub-card {
+        padding: 0px 40px;
+        display: flex;
+        flex-direction: column;
+      }
+      .result-card {
+        text-align: center;
+        background: linear-gradient(
+          /* 90deg, */ rgba(100, 65, 255, 1) 0%,
+          rgba(84, 57, 246, 1) 35%,
+          rgba(71, 52, 238, 1) 50%,
+          rgba(52, 46, 232, 1) 100%
+        );
+        border-radius: inherit;
+        align-items: center;
+        padding: 0px 60px;
+      }
+      .title {
+        font-size: 24px;
+        margin-top: 45px;
+      }
+      .result-card .title {
+        color: #d9d4ff;
+      }
+      .circle {
+        margin-top: 35px;
+        width: 194px;
+        height: 194px;
+        border-radius: 50%;
+        background: linear-gradient(
+          rgba(76, 34, 204, 1) 0%,
+          rgba(69, 44, 223, 1) 50%,
+          rgba(71, 52, 238, 1) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .circle h2 {
+        font-size: 70px;
+        color: #fcfcfa;
+      }
+      .circle h3 {
+        font-size: 20px;
+        color: #8c80ff;
+      }
+      .comment-title {
+        margin-top: 35px;
+        font-size: 32px;
+        color: #fcfcfa;
+      }
+      .comment-desc {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #d9d4ff;
+      }
+      .prg-cards {
+        display: flex;
+        justify-content: space-around;
+        gap: 16px;
+        flex-direction: column;
+        margin-top: 30px;
+        width: 288px
+      }
+      .prg-pill {
+        width: 100%;
+        height: 55px;
+        border-radius: 9px;
+        background-color: #fef7f5;
+        color: #f55;
+        display: flex;
+        align-items: center;
+      }
+      .pbg-yellow {
+        background-color: #fffbf2;
+        color: #ffb21e;
+      }
+      .pbg-green {
+        background-color: #f2fbfa;
+        color: #00bb8f;
+      }
+      .pbg-indigo {
+        background-color: #f3f3fd;
+        color: #1125d6;
+      }
+      .prg-pill svg {
+        flex-grow: 0.5;
+      }
+      .pill-text {
+        font-size: 18px;
+        flex-grow: 2;
+        margin: 0;
+      }
+      .pill-prg {
+        font-size: 18px;
+        flex-grow: 0.5;
+        margin: 0;
+        color: #313549;
+      }
+      .pill-scale {
+        color: #97a0a5;
+      }
+      .btn {
+        font-size: 20px;
+        width: 288px;
+        height: 55px;
+        text-decoration: none;
+        background-color: #313a5b;
+        color: #fdfeff;
+        border-radius: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+      }
+
+      .btn:hover{
+        background: linear-gradient(
+          /* 90deg, */ rgba(100, 65, 255, 1) 0%,
+          rgba(84, 57, 246, 1) 35%,
+          rgba(71, 52, 238, 1) 50%,
+          rgba(52, 46, 232, 1) 100%
+        );
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      @media only screen and (max-width: 420px) {
+        body {
+          display: block;
+        }
+        .card {
+          width: 100%;
+          height: auto;
+          flex-direction: column;
+          border-radius: 0px 0px 32px 32px;
+        }
+        .sub-card {
+          padding: 0px 30px;
+        }
+        .title {
+          margin-top: 26px;
+          font-size: 18px;
+        }
+        .result-card {
+          height: 355px;
+        }
+        .circle {
+          margin-top: 25px;
+          width: 135px;
+          height: 135px;
+        }
+        .circle h2 {
+          font-size: 55px;
+        }
+        .circle h3 {
+          font-size: 18px;
+        }
+        .comment-title {
+          margin-top: 25px;
+          font-size: 24px;
+        }
+        .comment-desc {
+          margin-top: 12px;
+          font-size: 16px;
+        }
+        .prg-cards {
+          margin-top: 26px;
+          width: 100%;
+        }
+        .btn{
+          width: 100%;
+          margin-top: 25px;
+          margin-bottom: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="result-card sub-card">
+        <h2 class="title">Your Result</h2>
+        <div class="circle">
+          <h2>76</h2>
+          <h3>of 100</h3>
+        </div>
+        <h2 class="comment-title">Great</h2>
+        <p class="comment-desc">
+          You scored higher than 65% of the people who have taken these tests.
+        </p>
+      </div>
+      <div class="summary-card sub-card">
+        <h2 class="title">Summary</h2>
+        <div class="prg-cards">
+          <div class="prg-pill">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke="#F55"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.25"
+                d="M10.833 8.333V2.5l-6.666 9.167h5V17.5l6.666-9.167h-5Z"
+              />
+            </svg>
+            <h3 class="pill-text">Reaction</h3>
+            <h3 class="pill-prg">80 <span class="pill-scale">/ 100</span></h3>
+          </div>
+          <div class="prg-pill pbg-yellow">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke="#FFB21E"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.25"
+                d="M5.833 11.667a2.5 2.5 0 1 0 .834 4.858"
+              />
+              <path
+                stroke="#FFB21E"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.25"
+                d="M3.553 13.004a3.333 3.333 0 0 1-.728-5.53m.025-.067a2.083 2.083 0 0 1 2.983-2.824m.199.054A2.083 2.083 0 1 1 10 3.75v12.917a1.667 1.667 0 0 1-3.333 0M10 5.833a2.5 2.5 0 0 0 2.5 2.5m1.667 3.334a2.5 2.5 0 1 1-.834 4.858"
+              />
+              <path
+                stroke="#FFB21E"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.25"
+                d="M16.447 13.004a3.334 3.334 0 0 0 .728-5.53m-.025-.067a2.083 2.083 0 0 0-2.983-2.824M10 3.75a2.085 2.085 0 0 1 2.538-2.033 2.084 2.084 0 0 1 1.43 2.92m-.635 12.03a1.667 1.667 0 0 1-3.333 0"
+              />
+            </svg>
+            <h3 class="pill-text">Memory</h3>
+            <h3 class="pill-prg">92 <span class="pill-scale">/ 100</span></h3>
+          </div>
+          <div class="prg-pill pbg-green">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke="#00BB8F"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.25"
+                d="M7.5 10h5M10 18.333A8.333 8.333 0 1 0 1.667 10c0 1.518.406 2.942 1.115 4.167l-.699 3.75 3.75-.699A8.295 8.295 0 0 0 10 18.333Z"
+              />
+            </svg>
+            <h3 class="pill-text">Verbal</h3>
+            <h3 class="pill-prg">61 <span class="pill-scale">/ 100</span></h3>
+          </div>
+          <div class="prg-pill pbg-indigo">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path
+                stroke="#1125D6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.25"
+                d="M10 11.667a1.667 1.667 0 1 0 0-3.334 1.667 1.667 0 0 0 0 3.334Z"
+              />
+              <path
+                stroke="#1125D6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.25"
+                d="M17.5 10c-1.574 2.492-4.402 5-7.5 5s-5.926-2.508-7.5-5C4.416 7.632 6.66 5 10 5s5.584 2.632 7.5 5Z"
+              />
+            </svg>
+            <h3 class="pill-text">Visual</h3>
+            <h3 class="pill-prg">72 <span class="pill-scale">/ 100</span></h3>
+          </div>
+        </div>
+        <a href="" class="btn"> Continue </a>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://www.frontendmentor.io/profile/p3rv3z" target="_blank"
+        >Pervez Ali</a
+      >.
+    </div>
+  </body>
+</html>
+
+<!-- background: rgb(100,65,255); background: linear-gradient(90deg,
+rgba(100,65,255,1) 0%, rgba(84,57,246,1) 35%, rgba(70,53,243,1) 64%,
+rgba(52,46,232,1) 100%); -->
